@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React from'react';
+import Home from './Home';
+import AdminUtil from './Admin_util';
+import {
+  Route, Routes,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<HashRouter>
+            <div>
+                <h1 className='title'>Simple SPA</h1>
+                <ul className="header">
+                    <li><NavLink to="/Home">Home</NavLink></li>
+                    <li><NavLink to="/Admin_util">Admin Tools</NavLink></li>
+                </ul>
+            <div className="content">
+
+            <Routes>
+                <Route path="/Home" element={<Home/>}/>
+                <Route path="/Admin_util" element={<AdminUtil/>}/>
+            </Routes>
+            </div>
+        </div>
+        </HashRouter>
   );
 }
 
